@@ -1,0 +1,27 @@
+﻿.hotels-title {
+    font-size: 5vh;
+    background-color: #06283D;
+    color: white;
+}
+
+.star {
+    color: orange;
+}
+
+.hotel-card {
+    border: 1px solid;
+    border-color: #06283D;
+    padding: 10px;
+    box-shadow: 0px 2px;
+}
+
+    .hotel-card:hover {
+        transform: scale(1.02);
+    }
+
+.price {
+    font-weight: 700;
+    color: #06283D;
+}
+
+

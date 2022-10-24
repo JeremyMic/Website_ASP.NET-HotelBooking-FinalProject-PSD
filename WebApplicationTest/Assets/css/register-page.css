@@ -1,0 +1,11 @@
+﻿.content-wrapper .row {
+    margin-bottom: 1em;
+}
+
+.content-wrapper .row:first-child {
+    margin-top: 1em;
+}
+
+.input-group-text {
+    width: 100px;
+}

@@ -1,0 +1,76 @@
+﻿body {
+    font-family: "Raleway", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.star {
+    color: orange;
+}
+
+#booking {
+    background-color: #06283D;
+}
+
+.hotel-selected {
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.hotel-card img {
+    width: 30%;
+    border: 2px solid;
+    box-shadow: 0 2px;
+}
+
+.booking-form {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-top: 8px;
+    z-index: 20;
+}
+
+    .booking-form .form-group {
+        position: relative;
+        margin-bottom: 30px
+    }
+
+    .booking-form .form-control {
+        background-color: rgba(47, 164, 255, 0.5);
+        height: 50px;
+        padding: 0px 25px;
+        border: none;
+        border-radius: 40px;
+        color: white;
+    }
+
+    .booking-form .form-label {
+        left: 25px;
+        color: white;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+#Content_UpdatePanel1{
+    background-color:white;
+    border-radius:20px;
+    padding:20px 20px 20px 20px;
+
+}
+
+#Content_UpdatePanel2 {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+#quantitybox {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+}

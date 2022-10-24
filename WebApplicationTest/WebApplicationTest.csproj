@@ -1,0 +1,389 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A8FF649-A2AD-4803-8174-816339C0E8D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplicationTest</RootNamespace>
+    <AssemblyName>WebApplicationTest</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44321</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\HotelReservation.mdf" />
+    <Content Include="App_Data\HotelReservation_log.ldf">
+      <DependentUpon>HotelReservation.mdf</DependentUpon>
+    </Content>
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\css\book-page.css" />
+    <Content Include="Assets\css\Home.css" />
+    <Content Include="Assets\css\hotel-page.css" />
+    <Content Include="Assets\css\login-page.css" />
+    <Content Include="Assets\css\main-master.css" />
+    <Content Include="Assets\css\register-page.css" />
+    <Content Include="Assets\JQuery\jquery-3.6.0.min.js" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\WebApplicationTest.dll" />
+    <Content Include="bin\WebApplicationTest.pdb" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\hotel1.jpg" />
+    <Content Include="Model\EFModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFModel.edmx</DependentUpon>
+      <LastGenOutput>EFModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EFModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFModel.edmx</DependentUpon>
+      <LastGenOutput>EFModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="View\BookPage.aspx" />
+    <Content Include="View\Home.aspx" />
+    <Content Include="View\HotelPage.aspx" />
+    <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\ManageHotel.aspx" />
+    <Content Include="View\ManageUser.aspx" />
+    <Content Include="View\MasterHotel.aspx" />
+    <Content Include="View\MasterUser.aspx" />
+    <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\ViewBookingPage.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\HotelFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
+    <Compile Include="Factory\ViewBookingFactory.cs" />
+    <Compile Include="Handler\TransactionHandler.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\DetailTransaction.cs">
+      <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EFModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EFModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HeaderTransaction.cs">
+      <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Hotel.cs">
+      <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserClass.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\HotelRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Util\DbManager.cs" />
+    <Compile Include="Util\PageUtility.cs" />
+    <Compile Include="View\BookPage.aspx.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\BookPage.aspx.designer.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\HotelPage.aspx.cs">
+      <DependentUpon>HotelPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\HotelPage.aspx.designer.cs">
+      <DependentUpon>HotelPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageHotel.aspx.cs">
+      <DependentUpon>ManageHotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ManageHotel.aspx.designer.cs">
+      <DependentUpon>ManageHotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MasterHotel.aspx.cs">
+      <DependentUpon>MasterHotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MasterHotel.aspx.designer.cs">
+      <DependentUpon>MasterHotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MasterUser.aspx.cs">
+      <DependentUpon>MasterUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MasterUser.aspx.designer.cs">
+      <DependentUpon>MasterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewBookingPage.aspx.cs">
+      <DependentUpon>ViewBookingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewBookingPage.aspx.designer.cs">
+      <DependentUpon>ViewBookingPage.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.js.map" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\WebApplicationTest.dll.config" />
+    <EntityDeploy Include="Model\EFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\EFModel.edmx.diagram">
+      <DependentUpon>EFModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="View\Main.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59922</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44321/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

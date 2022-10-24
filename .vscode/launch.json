@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "vslsRemoteLaunch",
+            "name": "WebApplicationTest",
+            "request": "attach",
+            "projectID": "4a8ff649-a2ad-4803-8174-816339c0e8d7"
+        }
+    ]
+}

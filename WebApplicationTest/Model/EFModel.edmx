@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HotelReservationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DetailTransaction">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="int" Nullable="false" />
+          <Property Name="transaction_id" Type="int" />
+          <Property Name="hotel_id" Type="int" />
+          <Property Name="roomType" Type="varchar" MaxLength="255" />
+          <Property Name="price" Type="money" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HeaderTransaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="255" />
+          <Property Name="transactionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="hotelId" />
+          </Key>
+          <Property Name="hotelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="roomType" Type="varchar" MaxLength="255" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="price" Type="money" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="role" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__DetailTra__hotel__03F0984C">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="DetailTransaction" Type="Self.DetailTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="hotelId" />
+            </Principal>
+            <Dependent Role="DetailTransaction">
+              <PropertyRef Name="hotel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetailTra__trans__02FC7413">
+          <End Role="HeaderTransaction" Type="Self.HeaderTransaction" Multiplicity="0..1" />
+          <End Role="DetailTransaction" Type="Self.DetailTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeaderTransaction">
+              <PropertyRef Name="transactionId" />
+            </Principal>
+            <Dependent Role="DetailTransaction">
+              <PropertyRef Name="transaction_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HeaderTra__user___3C69FB99">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="HeaderTransaction" Type="Self.HeaderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="HeaderTransaction">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelReservationModelStoreContainer">
+          <EntitySet Name="DetailTransaction" EntityType="Self.DetailTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeaderTransaction" EntityType="Self.HeaderTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DetailTra__hotel__03F0984C" Association="Self.FK__DetailTra__hotel__03F0984C">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="DetailTransaction" EntitySet="DetailTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetailTra__trans__02FC7413" Association="Self.FK__DetailTra__trans__02FC7413">
+            <End Role="HeaderTransaction" EntitySet="HeaderTransaction" />
+            <End Role="DetailTransaction" EntitySet="DetailTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HeaderTra__user___3C69FB99" Association="Self.FK__HeaderTra__user___3C69FB99">
+            <End Role="User" EntitySet="User" />
+            <End Role="HeaderTransaction" EntitySet="HeaderTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelReservationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DetailTransaction">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="Int32" Nullable="false" />
+          <Property Name="transaction_id" Type="Int32" />
+          <Property Name="hotel_id" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK__DetailTra__hotel__619B8048" FromRole="DetailTransaction" ToRole="Hotel" />
+          <NavigationProperty Name="HeaderTransaction" Relationship="Self.FK__DetailTra__trans__60A75C0F" FromRole="DetailTransaction" ToRole="HeaderTransaction" />
+          <Property Name="roomType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HeaderTransaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DetailTransaction" Relationship="Self.FK__DetailTra__trans__60A75C0F" FromRole="HeaderTransaction" ToRole="DetailTransaction" />
+          <NavigationProperty Name="User" Relationship="Self.FK__HeaderTra__user___3C69FB99" FromRole="HeaderTransaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="hotelId" />
+          </Key>
+          <Property Name="hotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DetailTransaction" Relationship="Self.FK__DetailTra__hotel__619B8048" FromRole="Hotel" ToRole="DetailTransaction" />
+          <Property Name="roomType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HeaderTransaction" Relationship="Self.FK__HeaderTra__user___3C69FB99" FromRole="User" ToRole="HeaderTransaction" />
+        </EntityType>
+        <Association Name="FK__DetailTra__hotel__619B8048">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="DetailTransaction" Type="Self.DetailTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="hotelId" />
+            </Principal>
+            <Dependent Role="DetailTransaction">
+              <PropertyRef Name="hotel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetailTra__trans__60A75C0F">
+          <End Role="HeaderTransaction" Type="Self.HeaderTransaction" Multiplicity="0..1" />
+          <End Role="DetailTransaction" Type="Self.DetailTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeaderTransaction">
+              <PropertyRef Name="transactionId" />
+            </Principal>
+            <Dependent Role="DetailTransaction">
+              <PropertyRef Name="transaction_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HeaderTra__user___3C69FB99">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="HeaderTransaction" Type="Self.HeaderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="HeaderTransaction">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelReservationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DetailTransaction" EntityType="Self.DetailTransaction" />
+          <EntitySet Name="HeaderTransaction" EntityType="Self.HeaderTransaction" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK__DetailTra__hotel__619B8048" Association="Self.FK__DetailTra__hotel__619B8048">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="DetailTransaction" EntitySet="DetailTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetailTra__trans__60A75C0F" Association="Self.FK__DetailTra__trans__60A75C0F">
+            <End Role="HeaderTransaction" EntitySet="HeaderTransaction" />
+            <End Role="DetailTransaction" EntitySet="DetailTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HeaderTra__user___3C69FB99" Association="Self.FK__HeaderTra__user___3C69FB99">
+            <End Role="User" EntitySet="User" />
+            <End Role="HeaderTransaction" EntitySet="HeaderTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelReservationModelStoreContainer" CdmEntityContainer="HotelReservationEntities">
+          <EntitySetMapping Name="DetailTransaction">
+            <EntityTypeMapping TypeName="HotelReservationModel.DetailTransaction">
+              <MappingFragment StoreEntitySet="DetailTransaction">
+                <ScalarProperty Name="roomType" ColumnName="roomType" />
+                <ScalarProperty Name="detailid" ColumnName="detailid" />
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="hotel_id" ColumnName="hotel_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeaderTransaction">
+            <EntityTypeMapping TypeName="HotelReservationModel.HeaderTransaction">
+              <MappingFragment StoreEntitySet="HeaderTransaction">
+                <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotel">
+            <EntityTypeMapping TypeName="HotelReservationModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="roomType" ColumnName="roomType" />
+                <ScalarProperty Name="hotelId" ColumnName="hotelId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="HotelReservationModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
